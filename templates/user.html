@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Interface</title>
+</head>
+<body>
+    <h1>User - Meeting Controls</h1>
+    <button onclick="startMeeting()">Start Meeting</button>
+    <button onclick="stopMeeting()">Stop Meeting</button>
+
+    <script>
+        function startMeeting() {
+            fetch('/start_meeting', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => alert(data.status));
+        }
+
+        function stopMeeting() {
+            fetch('/stop_meeting', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => alert(data.status));
+        }
+    </script>
+</body>
+</html>
